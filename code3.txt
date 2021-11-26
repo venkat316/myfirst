@@ -1,0 +1,107 @@
+#include<stdio.h>
+#include <string.h>
+
+struct expenses
+{
+    int food;
+    int traveling;
+    int shelter;
+    int health;
+    int clothing;
+    int shopping;
+    int internet;
+
+
+};
+struct trip
+{
+    struct expenses tripexpenses;
+};
+struct  friend
+{
+    char NAME[20];
+    struct expenses monthlyExpenses;
+    struct expenses paid;
+};
+int main()
+{  int a,length; char group[10]; FILE* my_file;
+    printf("NAME OF THE PROGRAM\n");
+    printf("select the following options : \n [1] CREATE A GROUP \n [2] SHOW GROUPS \n [3] EXIT \n");
+    printf("[*]  PLEASE ENTER YOUR SELECTION HERE:");
+    scanf("%d",&a);
+
+    if (a==1)
+    {   char str1[5]=".txt";
+        char str2[30]="E:\\project\\";
+        printf("please enter group name:");
+        char str3[100];
+        scanf("%s",&str3);
+        strcat(str2,str3);
+        strcat(str2,str1);
+        printf("how many members you are going to add:");
+        scanf("%d", &length);
+        struct friend friends[length];
+        for (int i = 0; i < length; i++) {
+            printf("enter group numbers names:");
+            scanf("%s", &friends[i].NAME);
+
+            printf("please enter the food expense of %s", friends[i].NAME);
+            scanf("%d", &friends[i].monthlyExpenses.food);
+            printf("please enter how much %s paid for food", friends[i].NAME);
+            scanf("%d", &friends[i].paid.food);
+            printf("please enter the health expense of %s", friends[i].NAME);
+            scanf("%d", &friends[i].monthlyExpenses.health);
+            printf("please enter how much  %s paid for health", friends[i].NAME);
+            scanf("%d", &friends[i].paid.health);
+            printf("please enter the shelter expense of %s", friends[i].NAME);
+            scanf("%d", &friends[i].monthlyExpenses.shelter);
+            printf("please enter how much  %s paid for shelter", friends[i].NAME);
+            scanf("%d", &friends[i].paid.shelter);
+            printf("please enter the travel expense of %s", friends[i].NAME);
+            scanf("%d", &friends[i].monthlyExpenses.traveling);
+            printf("please enter how much  %s paid for travel", friends[i].NAME);
+            scanf("%d", &friends[i].paid.traveling);
+            printf("please enter the clothing expense of %s", friends[i].NAME);
+            scanf("%d", &friends[i].monthlyExpenses.clothing);
+            printf("please enter how much  %s paid for clothing", friends[i].NAME);
+            scanf("%d", &friends[i].paid.clothing);
+            printf("please enter the shopping expense of %s", friends[i].NAME);
+            scanf("%d", &friends[i].monthlyExpenses.shopping);
+            printf("please enter how much  %s paid for shopping", friends[i].NAME);
+            scanf("%d", &friends[i].paid.shopping);
+            printf("please enter the internet expense of %s", friends[i].NAME);
+            scanf("%d", &friends[i].monthlyExpenses.internet);
+            printf("please enter how much  %s paid for internet", friends[i].NAME);
+            scanf("%d", &friends[i].paid.food);
+            FILE *my_file;
+            my_file = fopen(str2, "a+");
+            fprintf(my_file, "%d\n%s\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n",length, friends[i].NAME, friends[i].monthlyExpenses.food,
+                    friends[i].paid.food, friends[i].monthlyExpenses.health, friends[i].paid.health,
+                    friends[i].monthlyExpenses.shelter, friends[i].paid.shelter, friends[i].monthlyExpenses.traveling,
+                    friends[i].paid.traveling, friends[i].monthlyExpenses.clothing, friends[i].paid.clothing,
+                    friends[i].monthlyExpenses.shopping, friends[i].paid.shopping, friends[i].monthlyExpenses.internet,
+                    friends[i].paid.food);
+
+            fclose(my_file);
+
+        }
+    }
+    if (a==2)
+    {}
+    if (a==3)
+    {
+        printf("THANKS FOR USING OUR APPLICATION");
+
+    }
+
+
+
+
+
+
+
+
+
+
+    return 0;
+}
